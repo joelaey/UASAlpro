@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>w666rst Thrift Treasures</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#home" class="navbar-logo">w666rst<span>ThriftTreasures</span>.</a>
+
+        <div class="navbar-nav">
+            <a href="#account">Account</a>
+            <a href="#catalogue">Catalogue</a>
+            <a href="#product">Product</a>
+            <a href="#about">About Us</a>
+        </div>
+
+        <div class="navbar-extra">
+            <a href="#" id="search"><i data-feather="search"></i></a>
+            <a href="#" onclick="toggleCart()"><i data-feather="shopping-cart"></i></a>
+            <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+        </div>
+    </nav>
+    <!-- Navbar -->
+
+    <!-- Search Form -->
+    <div id="searchForm" style="display:none;">
+        <form action="/search" method="get">
+            <input type="text" name="query" placeholder="Search...">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-content">
+            <h2>Keranjang Belanja</h2>
+            <ul id="cartItems">
+                <!-- Item-item keranjang akan ditambahkan di sini -->
+            </ul>
+            <div class="cart-total">
+                <strong>Total: </strong> <span id="cartTotal">Rp0</span>
+            </div>
+            <button onclick="checkout()">Checkout</button>
+            <button onclick="closeCart()">Tutup</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <main class="content">
+            <h1>Being naked is the #1 most sustainable options. We're #2.</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, accusantium!</p>
+            <a href="#product" class="cta">Order Now</a>
+        </main>
+    </section>
+    <!-- Hero Section -->
+
+    <!-- Catalogue Section -->
+    <section id="catalogue" class="catalogue">
+        <h2>Search By Category</h2>
+
+        <div class="row">
+            <div class="catalogue-card">
+                <img src="img/catalogue-outer.jpeg" alt="Outer">
+                <h3>Outer</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A labore commodi reiciendis et corporis voluptatum?</p>
+            </div>
+            <div class="catalogue-card">
+                <img src="img/catalogue-shirt.jpeg" alt="Shirt">
+                <h3>Shirt</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea tempore iste nobis nesciunt deserunt unde.</p>
+            </div>
+            <div class="catalogue-card">
+                <img src="img/catalogue-tshirt.jpeg" alt="T-Shirt">
+                <h3>T-Shirt</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus omnis nam consequuntur debitis recusandae repudiandae?</p>
+            </div>
+            <div class="catalogue-card">
+                <img src="img/catalogue-pants.jpeg" alt="Pants">
+                <h3>Pants</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam maiores harum natus ipsum accusantium eius!</p>
+            </div>
+        </div>
+    </section>
+    <!-- Catalogue Section -->
+
+    <!-- Product Section -->
+    <section id="product" class="product">
+        <h2>Product</h2>
+
+        <div class="row">
+            <div class="product-card">
+                <img src="img/catalogue-outer.jpeg" alt="Outer">
+                <h3>Parka Jacket LightDawn, Boxy Fit</h3>
+                <h3>Rp.450.000</h3>
+                <button onclick="addToCart({name: 'Parka Jacket LightDawn, Boxy Fit', price: 450000})">Tambahkan ke Keranjang</button>
+            </div>
+            <div class="product-card">
+                <img src="img/catalogue-shirt.jpeg" alt="Shirt">
+                <h3>Basic shirt with 100% cotton</h3>
+                <h3>Rp.250.000</h3>
+                <button onclick="addToCart({name: 'Basic shirt with 100% cotton', price: 250000})">Tambahkan ke Keranjang</button>
+            </div>
+            <div class="product-card">
+                <img src="img/catalogue-tshirt.jpeg" alt="T-Shirt">
+                <h3>w666rst Basic T-Shirt</h3>
+                <h3>Rp.150.000</h3>
+                <button onclick="addToCart({name: 'w666rst Basic T-Shirt', price: 150000})">Tambahkan ke Keranjang</button>
+            </div>
+            <div class="product-card">
+                <img src="img/catalogue-pants.jpeg" alt="Pants">
+                <h3>Jogger Pants with 100% cotton, Baggy Fit</h3>
+                <h3>Rp.500.000</h3>
+                <button onclick="addToCart({name: 'Jogger Pants with 100% cotton, Baggy Fit', price: 500000})">Tambahkan ke Keranjang</button>
+            </div>
+            <div class="product-card">
+                <img src="img/catalogue-outer.jpeg" alt="Outer">
+                <h3>Parka Jacket LightDawn, Boxy Fit</h3>
+                <h3>Rp.450.000</h3>
+                <button onclick="addToCart({name: 'Parka Jacket LightDawn, Boxy Fit', price: 450000})">Tambahkan ke Keranjang</button>
+            </div>
+            <div class="product-card">
+                <img src="img/catalogue-shirt.jpeg" alt="Shirt">
+                <h3>Basic shirt with 100% cotton</h3>
+                <h3>Rp.250.000</h3>
+                <button onclick="addToCart({name: 'Basic shirt with 100% cotton', price: 250000})">Tambahkan ke Keranjang</button>
+            </div>
+            <div class="product-card">
+                <img src="img/catalogue-tshirt.jpeg" alt="T-Shirt">
+                <h3>w666rst Basic T-Shirt</h3>
+                <h3>Rp.150.000</h3>
+                <button onclick="addToCart({name: 'w666rst Basic T-Shirt', price: 150000})">Tambahkan ke Keranjang</button>
+            </div>
+            <div class="product-card">
+                <img src="img/catalogue-pants.jpeg" alt="Pants">
+                <h3>Jogger Pants with 100% cotton, Baggy Fit</h3>
+                <h3>Rp.500.000</h3>
+                <button onclick="addToCart({name: 'Jogger Pants with 100% cotton, Baggy Fit', price: 500000})">Tambahkan ke Keranjang</button>
+            </div>
+            <div class="product-card">
+                <img src="img/catalogue-outer.jpeg" alt="Outer">
+                <h3>Parka Jacket LightDawn, Boxy Fit</h3>
+                <h3>Rp.450.000</h3>
+                <button onclick="addToCart({name: 'Parka Jacket LightDawn, Boxy Fit', price: 450000})">Tambahkan ke Keranjang</button>
+            </div>
+            <div class="product-card">
+                <img src="img/catalogue-shirt.jpeg" alt="Shirt">
+                <h3>Basic shirt with 100% cotton</h3>
+                <h3>Rp.250.000</h3>
+                <button onclick="addToCart({name: 'Basic shirt with 100% cotton', price: 250000})">Tambahkan ke Keranjang</button>
+            </div>
+            <div class="product-card">
+                <img src="img/catalogue-tshirt.jpeg" alt="T-Shirt">
+                <h3>w666rst Basic T-Shirt</h3>
+                <h3>Rp.150.000</h3>
+                <button onclick="addToCart({name: 'w666rst Basic T-Shirt', price: 150000})">Tambahkan ke Keranjang</button>
+            </div>
+            <div class="product-card">
+                <img src="img/catalogue-pants.jpeg" alt="Pants">
+                <h3>Jogger Pants with 100% cotton, Baggy Fit</h3>
+                <h3>Rp.500.000</h3>
+                <button onclick="addToCart({name: 'Jogger Pants with 100% cotton, Baggy Fit', price: 500000})">Tambahkan ke Keranjang</button>
+            </div>
+        </div>
+    </section>
+    <!-- Product Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+
+        <div class="row">
+            <div class="about-img">
+                <img src="img/about-us-pic.jpeg" alt="About Us">
+            </div>
+            <div class="content">
+                <h2>w666rst :</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum odio nostrum recusandae ullam illo laborum quas sed nesciunt consectetur ex.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero ullam labore corrupti voluptate pariatur voluptas incidunt laborum exercitationem optio harum. Cupiditate perferendis omnis vitae exercitationem nobis animi nesciunt ipsa veritatis.</p>
+                <a href="#footer">Contact Us !</a>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+
+    <!-- Account Section -->
+    <section id="account" class="account">
+        <div class="container">
+            <div class="account-form" id="login-form">
+                <h2>Login</h2>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="usernameOrEmailOrPhone" id="usernameOrEmailOrPhone" placeholder="Username/Email/Phone" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" id="password" placeholder="Password" required>
+                    </div>
+                    <a href="#" class="btn-login">Login</a>
+                </form>
+                <p>Don't have an account yet? <a href="#" id="register-link">Click here to register.</a></p>
+            </div>
+            <div class="account-form" id="register-form" style="display: none;">
+                <h2>Register</h2>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" id="name" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="username" id="username" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" id="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" id="phone" placeholder="Phone" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" id="password" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="address" id="address" placeholder="Address" required></textarea>
+                    </div>
+                    <a href="#" class="btn-register">Register</a>
+                </form>
+                <p>Already have an account? <a href="#" id="login-link">Click here to login.</a></p>
+            </div>
+        </div>
+    </section>
+    <!-- Account Section -->
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+
+        <div class="footer-logo">w666rst<span>ThriftTreasures</span>.</div>
+
+            <div class="container">
+                <div class="footer-content">
+                        <div class="center-content">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, doloremque? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi, beatae.</p>
+                        </div>
+                        <div class="center-content">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, deserunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, excepturi!</p>
+                        </div>
+                        <div class="center-content">
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, minima? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, recusandae.</p>
+                        </div>
+                </div>
+            </div>
+
+            <div class="footer-extra">
+                <div class="social-media">
+                    <p>Follow Us</p>
+                    <a href="#instagram"><i data-feather="instagram"></i></a>
+                    <a href="#facebook"><i data-feather="facebook"></i></a>
+                    <a href="#youtube"><i data-feather="youtube"></i></a>
+                    <a href="#twitter"><i data-feather="twitter"></i></a>
+                </div>
+        </div>
+    </footer>
+    
+    <!-- Footer -->
+
+    <!-- Icons -->
+    <script>
+        feather.replace();
+      </script>
+    <!-- Icons -->
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
